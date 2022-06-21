@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private Joystick _joystick = null;
     [Header("Speed Player")] [Tooltip("Speed Player")] [SerializeField] [Range(1f, 7)]
     private float _speedWalk = default;
     [Header("Speed Player")][Tooltip("Speed Player")][SerializeField] [Range(8f, 15)]
@@ -16,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private float _sensitivityCamera = default;
     
     private Rigidbody _rigidbody = null;
-    public FloatingJoystick FloatingJoystick;
     private float _x =default;
     private float _z = default;
     private float mouseX = default;
