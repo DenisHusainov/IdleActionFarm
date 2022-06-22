@@ -6,50 +6,38 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Speed Player")] [Tooltip("Speed Player")] [SerializeField] [Range(1f, 7)]
-    private float _speedWalk = default;
     [Header("Speed Player")][Tooltip("Speed Player")][SerializeField] [Range(8f, 15)]
     private float _speedRun = default;
-    [Header("Camera sensitivity")][Tooltip("Camera sensitivity")][SerializeField] [Range(1f, 5)]
-    private float _sensitivityCamera = default;
     
     private Rigidbody _rigidbody = null;
+    private Animator _animator = null;
     private float _x =default;
     private float _z = default;
-    private float mouseX = default;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
     {
         _x = Joystick.Instance.Horizontal;
-        _z = Joystick.Instance.Vertical;
-        // mouseX = _vertical.Horizontal;
-        transform.rotation *= new Quaternion(0,mouseX*Time.deltaTime*_sensitivityCamera,0,1);
+        _z = Joystick.Instance.Vertical; 
     }
     
     private void FixedUpdate()
     {
+        _rigidbody.velocity = new Vector3(_x*_speedRun, _rigidbody.velocity.y, _z*_speedRun);
+        
         if(_x != 0 || _z != 0)
         {
-            _rigidbody.AddRelativeForce(AplyNewVector(ref _x, ref _z, ref _speedWalk));
-            // _animationController.SetSpeed_and_strafe(_z, _x);
-            // _shakeCamera.SetShakeCamera(1.5f);
-               
+             _animator.SetBool("IsRun", true);
+             transform.rotation = Quaternion.LookRotation( _rigidbody.velocity);
         }
         else
         {
-            // _animationController.SetSpeed_and_strafe(0,0);
-            // _shakeCamera.SetShakeCamera(0.75f);
+             _animator.SetBool("IsRun", false);
         }
-    }
-    
-
-    private Vector3 AplyNewVector(ref float x, ref float z, ref float speed)
-    {
-        return new Vector3(speed*Time.deltaTime*x*1000, 0, speed*Time.deltaTime*z*1000);
     }
 }
