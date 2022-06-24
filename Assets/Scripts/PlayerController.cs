@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +11,16 @@ public class PlayerController : MonoBehaviour
     private float _x =default;
     private float _z = default;
 
+    private void OnEnable()
+    {
+        CropCutiing.CutOff+= CropCutiing_CutOff;
+    }
+    
+    private void OnDisable()
+    {
+        CropCutiing.CutOff-= CropCutiing_CutOff;
+    }
+    
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -39,5 +46,10 @@ public class PlayerController : MonoBehaviour
         {
              _animator.SetBool("IsRun", false);
         }
+    }
+    
+    private void CropCutiing_CutOff()
+    {
+        _animator.SetBool("IsSlashed", true);
     }
 }
