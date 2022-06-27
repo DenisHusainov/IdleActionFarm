@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        CropCutiing.CutOff+= CropCutiing_CutOff;
+        GlassController.CutOff+= CropCutiing_CutOff;
     }
     
     private void OnDisable()
     {
-        CropCutiing.CutOff-= CropCutiing_CutOff;
+        GlassController.CutOff-= CropCutiing_CutOff;
     }
     
     private void Start()
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
              _animator.SetBool("IsRun", false);
         }
     }
-    
+
     private void CropCutiing_CutOff()
     {
         _animator.SetBool("IsSlashed", true);

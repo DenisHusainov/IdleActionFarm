@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void ShowWindow<T>() where T : Window
+    private void ShowWindow<T>() where T : Window
     {
         CloseWindows();
         var windowToShow = _windows.FirstOrDefault(x => x is T);
