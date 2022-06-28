@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Speed Player")][Tooltip("Speed Player")][SerializeField] [Range(8f, 15)]
+    [Header("Speed Player")] [Tooltip("Speed Player")] [SerializeField] [Range(8f, 15)]
     private float _speedRun = default;
     
     private Rigidbody _rigidbody = null;
@@ -50,6 +50,6 @@ public class PlayerController : MonoBehaviour
 
     private void CropCutiing_CutOff()
     {
-        _animator.SetBool("IsSlashed", true);
+       _animator.SetTrigger("IsSlashed");
     }
 }
