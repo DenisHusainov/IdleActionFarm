@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Speed Player")] [Tooltip("Speed Player")] [SerializeField] [Range(8f, 15)]
     private float _speedRun = default;
+    [SerializeField] 
+    private GameObject _sickle = null;
     
     private Rigidbody _rigidbody = null;
     private Animator _animator = null;
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
+        _sickle.SetActive(false);
     }
 
     private void Update()
@@ -50,6 +54,15 @@ public class PlayerController : MonoBehaviour
 
     private void CropCutiing_CutOff()
     {
+        StartCoroutine(Cut());
        _animator.SetTrigger("IsSlashed");
+       _sickle.SetActive(false);
+    }
+
+    private IEnumerator Cut()
+    {
+        _sickle.SetActive(true);
+        yield return new WaitForSeconds(2.1f);
+        _sickle.SetActive(false);
     }
 }

@@ -2640,6 +2640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedRun: 8
+  _sickle: {fileID: 2080205509}
 --- !u!54 &1145050940
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2675,6 +2676,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2560041502494105930, guid: 605dbb9991d9e4765a480378a1bd2569, type: 3}
   m_PrefabInstance: {fileID: 5335640179364010764}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1145050943
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145050938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: e39cccb0f76dd4aa7911eaf0251c0b49, type: 3}
+  m_Controller: {fileID: 9100000, guid: 55409f71b9fc44ba6baaec1842c4fabd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1157061291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4661,10 +4681,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4122536980541368597, guid: 2848a0806986778408b04c54197ae691, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2848a0806986778408b04c54197ae691, type: 3}
+--- !u!1 &2080205509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4122536980541368597, guid: 2848a0806986778408b04c54197ae691, type: 3}
+  m_PrefabInstance: {fileID: 2080205508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2085111077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4936,6 +4961,14 @@ PrefabInstance:
     - target: {fileID: 3371301964446977404, guid: 605dbb9991d9e4765a480378a1bd2569, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767390025407291013, guid: 605dbb9991d9e4765a480378a1bd2569, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767390025407291013, guid: 605dbb9991d9e4765a480378a1bd2569, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6052547487193434963, guid: 605dbb9991d9e4765a480378a1bd2569, type: 3}
       propertyPath: m_LocalPosition.x

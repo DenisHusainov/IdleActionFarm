@@ -7,7 +7,7 @@ public class GlassController : MonoBehaviour
     private GameObject _grassBlock = null;
     [SerializeField]
     private GameObject _parentPrefab = null;
-    
+
     private Animator _animator = null;
     
     //Need to change the name of the event
