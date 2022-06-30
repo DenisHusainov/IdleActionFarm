@@ -61,6 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grassBlock: {fileID: 8396972250763612686, guid: 39988e4ec0fc8b6418b6c341e70958b3, type: 3}
   _parentPrefab: {fileID: 3380016631976595747}
+  _blockContainer: {fileID: 3351235179509558034, guid: 936e2a706ea7343cf92d6edad72414e8, type: 3}
 --- !u!1001 &4979934373464466473
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8396972250763612684}
   - component: {fileID: 8396972250763612685}
   - component: {fileID: 2325670113317464152}
+  - component: {fileID: 415972990825646979}
   m_Layer: 0
   m_Name: GrassBlock
   m_TagString: GrassBlock
@@ -112,3 +113,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &415972990825646979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396972250763612686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a79668696ebf4dafbbb5b3fe4da059b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blockContainer: {fileID: 3351235179509558034, guid: 936e2a706ea7343cf92d6edad72414e8, type: 3}
+  _grassBlock: {fileID: 8396972250763612686}

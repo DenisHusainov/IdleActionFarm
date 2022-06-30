@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 
-public class GlassController : MonoBehaviour
+public class GrassController : MonoBehaviour
 {
     [SerializeField] 
     private GameObject _grassBlock = null;
     [SerializeField]
     private GameObject _parentPrefab = null;
+    [SerializeField] 
+    private GameObject _blockContainer = null;
 
     private Animator _animator = null;
     
@@ -25,7 +27,6 @@ public class GlassController : MonoBehaviour
         {
             CutOff();
             _animator.SetTrigger("IsGrowing");
-            Instantiate(_grassBlock, _parentPrefab.transform.position, _parentPrefab.transform.rotation);
         }
     }
 
@@ -34,6 +35,8 @@ public class GlassController : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerController>())
         {
             _animator.SetTrigger("IsGrowing");
+             Instantiate(_grassBlock, _parentPrefab.transform.position + Vector3.up,
+                 _parentPrefab.transform.rotation);
         }
     }
 }
