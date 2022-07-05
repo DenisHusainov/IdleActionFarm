@@ -7,8 +7,6 @@ public class GrassController : MonoBehaviour
     private GameObject _grassBlock = null;
     [SerializeField]
     private GameObject _parentPrefab = null;
-    [SerializeField] 
-    private GameObject _blockContainer = null;
 
     private Animator _animator = null;
     

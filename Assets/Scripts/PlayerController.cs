@@ -10,19 +10,16 @@ public class PlayerController : MonoBehaviour
     private float _speedRun = default;
     [SerializeField] 
     private GameObject _sickle = null;
-    [SerializeField] 
+    [SerializeField]
     private GameObject _blockContainer = null;
-    [SerializeField] 
-    private GameObject _grassBlock = null;
+    [SerializeField]
+    private GameObject _grassBlockInContainer = null;
 
-    private Animation _runAnimation = null;
 
     private Rigidbody _rigidbody = null;
     private Animator _animator = null;
     private float _x =default;
     private float _z = default;
-    private bool _isAnimationActive = default;
-
 
     private void OnEnable()
     {
@@ -52,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody.velocity = new Vector3(_x*_speedRun, _rigidbody.velocity.y, _z*_speedRun);
         
-        if(_x != 0 || _z != 0 && !_isAnimationActive)
+        if(_x != 0 || _z != 0)
         {
             _animator.SetBool("IsRun", true);
             transform.rotation = Quaternion.LookRotation( _rigidbody.velocity);
@@ -66,17 +63,14 @@ public class PlayerController : MonoBehaviour
     private void CropCutiing_CutOff()
     {
         StartCoroutine(Cut()); 
-        _sickle.SetActive(false);
     }
 
     private IEnumerator Cut()
     {
         _sickle.SetActive(true);
-        _isAnimationActive = true;
         _animator.SetTrigger("IsSlashed");
         yield return new WaitForSeconds(2.1f);
         _sickle.SetActive(false);
-        _isAnimationActive = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -86,10 +80,11 @@ public class PlayerController : MonoBehaviour
             Sold();
         }
     }
-    
+
+    //Need to move to another class Instantiate()
     private void Harvest_TookTheGrass()
     {
-        Instantiate(_grassBlock, _blockContainer.transform.position, _blockContainer.transform.rotation,
-            _blockContainer.transform);
+        Instantiate(_grassBlockInContainer, _blockContainer.transform.position, _blockContainer.transform.rotation,
+        _blockContainer.transform);
     }
 }
