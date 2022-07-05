@@ -12,9 +12,6 @@ public class PlayerController : MonoBehaviour
     private GameObject _sickle = null;
     [SerializeField]
     private GameObject _blockContainer = null;
-    [SerializeField]
-    private GameObject _grassBlockInContainer = null;
-
 
     private Rigidbody _rigidbody = null;
     private Animator _animator = null;
@@ -84,7 +81,8 @@ public class PlayerController : MonoBehaviour
     //Need to move to another class Instantiate()
     private void Harvest_TookTheGrass()
     {
-        Instantiate(_grassBlockInContainer, _blockContainer.transform.position, _blockContainer.transform.rotation,
-        _blockContainer.transform);
+        var grassInContainer = PoolManager.Instance.GetPooledObject(_blockContainer.transform.position,
+            _blockContainer.transform.rotation);
+        grassInContainer.SetActive(true);
     }
 }
